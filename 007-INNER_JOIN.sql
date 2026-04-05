@@ -47,3 +47,14 @@ SELECT Customers.CUSTOMER_ID, Customers.CUSTOMER_NAME, Orders.ORDER_ID, Orders.T
 	FROM Customers C
     INNER JOIN Orders O
     ON C.CUSTOMER_ID = O.REF_CUSTOMER_ID;
+
+	-- Using JOINS without using keyword JOIN (works correctly for INNER JOIN, but not suitable for LEFT/RIGHT/FULL joins)
+	SELECT
+		C.CUSTOMER_ID C_ID,
+        C.CUSTOMER_NAME C_NAME,
+        O.ORDER_ID O_ID,
+        O.TOTAL_AMOUNT O_AMT
+	FROM
+		Customers C, Orders O
+	WHERE
+		C.CUSTOMER_ID = O.REF_CUSTOMER_ID;
